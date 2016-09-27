@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TracriteDemo.AddCustomerPage"
+             Title="Add new customer">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style x:Key="styleLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="FontSize" Value="30"/>
+      </Style>
+      <Style x:Key="styleEntry" TargetType="Entry">
+        <Setter Property="TextColor" Value="Black"/>
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="BackgroundColor" Value="White"/>
+      </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
+  <StackLayout BackgroundColor="Black">
+    <Label Text="First Name:" Style="{StaticResource styleLabel}"/>
+    <Entry x:Name="txtFirstName" Style="{StaticResource styleEntry}"/>
+    <Label Text="Last Name:" Style="{StaticResource styleLabel}"/>
+    <Entry x:Name="txtLastName" Style="{StaticResource styleEntry}"/>
+    <Label Text="City of Birth:" Style="{StaticResource styleLabel}"/>
+    <Entry x:Name="txtCityOfBirth" Style="{StaticResource styleEntry}"/>
+    <Label Text="Country of Birth:" Style="{StaticResource styleLabel}"/>
+    <Entry x:Name="txtCountryOfBirth" Style="{StaticResource styleEntry}"/>
+    <Button x:Name="btnInsertCustomer" Text="Insert" 
+            BackgroundColor="#F0A341"
+            TextColor="Black"
+            FontAttributes="Bold"
+            Clicked="btnInsertCustomer_click"/>
+  </StackLayout>
+</ContentPage>

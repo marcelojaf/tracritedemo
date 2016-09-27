@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TracriteDemo"
+             x:Class="TracriteDemo.MainPage"
+             Title="Tracrite Demo">
+
+  <StackLayout BackgroundColor="Black">
+    <Button Text="Add Customer"
+            BackgroundColor="#F0A341"
+            TextColor="Black"
+            FontAttributes="Bold"
+            Clicked="btnAddCustomer_click"/>
+  </StackLayout>
+
+</ContentPage>
