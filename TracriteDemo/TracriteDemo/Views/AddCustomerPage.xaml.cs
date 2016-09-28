@@ -13,15 +13,14 @@ namespace TracriteDemo
         public AddCustomerPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, true);
         }
 
         private void btnInsertCustomer_click(object sender, EventArgs e)
         {
-            Customer newCustomer = new Customer();
-            newCustomer.FirstName = txtFirstName.Text;
-            newCustomer.LastName = txtLastName.Text;
-            newCustomer.CityOfBirth = txtCityOfBirth.Text;
-            newCustomer.CountryOfBirth = txtCountryOfBirth.Text;
+            var customer = (Customer)BindingContext;
+            App.Database.insertCustomers(customer);
+            this.Navigation.PopAsync();
         }
     }
 }

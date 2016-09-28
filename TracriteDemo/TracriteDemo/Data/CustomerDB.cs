@@ -29,6 +29,14 @@ namespace TracriteDemo.Data
             }
         }
 
+        public Customer getCustomer(int id)
+        {
+            lock (locker)
+            {
+                return database.Table<Customer>().FirstOrDefault(x => x.ID == id);
+            }
+        }
+
         public int insertCustomers(Customer customer)
         {
             lock (locker)

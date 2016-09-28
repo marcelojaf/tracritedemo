@@ -19,5 +19,7 @@ namespace TracriteDemo.Models
         public string CityOfBirth { get; set; }
 
         public string CountryOfBirth { get; set; }
+
+        public string FullName => string.Format("{0} {1}", FirstName, LastName);
     }
 }

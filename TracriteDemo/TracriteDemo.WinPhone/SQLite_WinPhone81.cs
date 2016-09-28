@@ -22,11 +22,11 @@ namespace TracriteDemo.WinPhone
 
         public SQLite.SQLiteConnection GetConnection()
         {
-            var sqliteFilename = "TodoSQLite.db3";
+            var sqliteFilename = "TracriteDemoSQLite.db3";
             string path = Path.Combine(ApplicationData.Current.LocalFolder.Path, sqliteFilename);
 
             var conn = new SQLite.SQLiteConnection(path);
-
+            
             // Return the database connection 
             return conn;
         }

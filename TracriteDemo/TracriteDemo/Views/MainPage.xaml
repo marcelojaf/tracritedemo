@@ -5,12 +5,23 @@
              x:Class="TracriteDemo.MainPage"
              Title="Tracrite Demo">
 
-  <StackLayout BackgroundColor="Black">
-    <Button Text="Add Customer"
-            BackgroundColor="#F0A341"
-            TextColor="Black"
-            FontAttributes="Bold"
-            Clicked="btnAddCustomer_click"/>
-  </StackLayout>
+  <ListView x:Name="listView" ItemSelected="listItemSelected">
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <ViewCell.View>
+            <StackLayout Padding="20,0,20,0"
+                         Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand">
 
+              <Label Text="{Binding FullName}"
+                     VerticalTextAlignment="Center"
+                     HorizontalOptions="StartAndExpand" />
+
+            </StackLayout>
+          </ViewCell.View>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
 </ContentPage>

@@ -2,30 +2,34 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TracriteDemo.AddCustomerPage"
-             Title="Add new customer">
+             Title="{Binding FullName}">
   <ContentPage.Resources>
     <ResourceDictionary>
       <Style x:Key="styleLabel" TargetType="Label">
         <Setter Property="TextColor" Value="White"/>
-        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="FontSize" Value="10"/>
       </Style>
       <Style x:Key="styleEntry" TargetType="Entry">
         <Setter Property="TextColor" Value="Black"/>
-        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="FontSize" Value="10"/>
         <Setter Property="BackgroundColor" Value="White"/>
       </Style>
     </ResourceDictionary>
   </ContentPage.Resources>
 
-  <StackLayout BackgroundColor="Black">
+  <StackLayout BackgroundColor="Black" VerticalOptions="StartAndExpand">
     <Label Text="First Name:" Style="{StaticResource styleLabel}"/>
-    <Entry x:Name="txtFirstName" Style="{StaticResource styleEntry}"/>
+    <Entry x:Name="txtFirstName" Style="{StaticResource styleEntry}" Text="{Binding FirstName}"/>
+    
     <Label Text="Last Name:" Style="{StaticResource styleLabel}"/>
-    <Entry x:Name="txtLastName" Style="{StaticResource styleEntry}"/>
+    <Entry x:Name="txtLastName" Style="{StaticResource styleEntry}" Text="{Binding LastName}"/>
+    
     <Label Text="City of Birth:" Style="{StaticResource styleLabel}"/>
-    <Entry x:Name="txtCityOfBirth" Style="{StaticResource styleEntry}"/>
+    <Entry x:Name="txtCityOfBirth" Style="{StaticResource styleEntry}" Text="{Binding CityOfBirth}"/>
+    
     <Label Text="Country of Birth:" Style="{StaticResource styleLabel}"/>
-    <Entry x:Name="txtCountryOfBirth" Style="{StaticResource styleEntry}"/>
+    <Entry x:Name="txtCountryOfBirth" Style="{StaticResource styleEntry}" Text="{Binding CountryOfBirth}"/>
+    
     <Button x:Name="btnInsertCustomer" Text="Insert" 
             BackgroundColor="#F0A341"
             TextColor="Black"
