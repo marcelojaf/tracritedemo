@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TracriteDemo.Views.SettingsPage"
+             Title="Settings">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style x:Key="styleLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="FontSize" Value="10"/>
+      </Style>
+      <Style x:Key="styleEntry" TargetType="Entry">
+        <Setter Property="TextColor" Value="Black"/>
+        <Setter Property="FontSize" Value="10"/>
+        <Setter Property="BackgroundColor" Value="White"/>
+      </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
+  <StackLayout BackgroundColor="Black" VerticalOptions="StartAndExpand">
+    <Label Text="Server:" Style="{StaticResource styleLabel}"/>
+    <Entry x:Name="txtServer" Style="{StaticResource styleEntry}" Text="{Binding Server}"/>
+
+    <Label Text="User:" Style="{StaticResource styleLabel}"/>
+    <Entry x:Name="txtUser" Style="{StaticResource styleEntry}" Text="{Binding User}"/>
+
+    <Label Text="Password:" Style="{StaticResource styleLabel}"/>
+    <Entry x:Name="txtPassword" Style="{StaticResource styleEntry}" Text="{Binding Password}"/>
+
+    <Label Text="Use local database:" Style="{StaticResource styleLabel}"/>
+    <Switch x:Name="localDatabaseSwitch" IsToggled="{Binding Path=LocalDatabase}" Toggled="localDatabaseSwitch_toggle" />
+
+    <Button x:Name="btnUpdateSettings" Text="Update"
+            BackgroundColor="#F0A341"
+            TextColor="Black"
+            FontAttributes="Bold"
+            Clicked="btnUpdateSettings_click"/>
+  </StackLayout>
+</ContentPage>

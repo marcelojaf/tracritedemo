@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TracriteDemo.Data;
+using TracriteDemo.Models;
 using Xamarin.Forms;
 
 namespace TracriteDemo
@@ -12,6 +13,9 @@ namespace TracriteDemo
     public class App : Application
     {
         static CustomerDB database;
+        static SettingsDB settingsDatabase;
+        public static Settings settingsSelected;
+        public static CustomerManager CustomerManager { get; private set; }
 
         public App()
         {
@@ -23,7 +27,25 @@ namespace TracriteDemo
             nav.BarBackgroundColor = (Color)App.Current.Resources["primaryGreen"];
             nav.BarTextColor = Color.White;
 
+            int settingsID = insertUpdateSettings();
+            var settings = new Settings();
+            settings = App.SettingsDatabase.getSettings(settingsID);
+            App.settingsSelected = settings;
+
+            CustomerManager = new CustomerManager(new RestService());
+
             MainPage = nav;
+        }
+
+        private int insertUpdateSettings()
+        {
+            return App.SettingsDatabase.insertSettings(new Settings
+            {
+                Server = "http://localhost:49290/api/todoitems{0}",
+                User = "Xamarin",
+                Password = "1234",
+                LocalDatabase = true
+            });
         }
 
         public static CustomerDB Database
@@ -39,6 +61,20 @@ namespace TracriteDemo
         }
 
         public int ResumeAtCustomerId { get; set; }
+
+        public static SettingsDB SettingsDatabase
+        {
+            get
+            {
+                if (settingsDatabase == null)
+                {
+                    settingsDatabase = new SettingsDB();
+                }
+                return settingsDatabase;
+            }
+        }
+
+        public int ResumeAtSettingsId { get; set; }
 
         protected override void OnStart()
         {
