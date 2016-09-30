@@ -40,16 +40,25 @@ namespace TracriteDemo.Views
             if (!localDatabaseSwitch.IsToggled)
             {
                 var uri = new Uri(string.Format(App.settingsSelected.Server, string.Empty));
-                var response = await client.GetAsync(uri);
-                if (response.IsSuccessStatusCode)
+                try
                 {
-                    return;
+                    var response = await client.GetAsync(uri);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        localDatabaseSwitch.IsToggled = true;
+                        await DisplayAlert("Alert", "The server is not responding: " + response.StatusCode.ToString(), "OK");
+                    }
                 }
-                else
+                catch (Exception erro)
                 {
                     localDatabaseSwitch.IsToggled = true;
-                    await DisplayAlert("Alert", "The server is not responding: " + response.StatusCode.ToString(), "OK");
+                    await DisplayAlert("Alert", "The server is not responding: " + erro.Message, "OK");
                 }
+                
             }
             btnUpdateSettings.IsEnabled = true;
         }

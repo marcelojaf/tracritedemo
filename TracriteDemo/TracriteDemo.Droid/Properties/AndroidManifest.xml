@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:installLocation="auto" android:versionName="1.1" package="Tracrite.TracriteDemo">
 	<uses-sdk android:minSdkVersion="15" />
-	<application android:label="TracriteDemo.Droid"></application>
+	<uses-permission android:name="android.permission.DELETE_PACKAGES" />
+	<uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+	<uses-permission android:name="android.permission.RESTART_PACKAGES" />
+	<application android:label="TracriteDemo" android:icon="@drawable/icon"></application>
 </manifest>
